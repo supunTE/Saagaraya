@@ -1,0 +1,284 @@
+$cloud-grey: #ededed; //(අළු වලා)
+$red-rose: #ef476f; //(රතු රෝස)
+$sunny-yellow: #ffd166; //(අව් කහ)
+$ocean-green: #00cc99; //(සයුරු කොළ)
+$wave-blue: #0095b6; //(නිල් රළ)
+$deep-blue: #073b4c; //(ගැඹුරු නිල්)
+$black-currant: #1a073b; //(මා දං)
+
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@300;500;600&family=Yaldevi:wght@300;500;600;700&display=swap");
+
+$yaldevi-font: "Yaldevi", sans-serif;
+$exo-font: "Exo", sans-serif;
+
+$heading1: "සයුරේ සරන්නට...";
+
+* {
+	margin: unset;
+	padding: unset;
+	box-sizing: border-box;
+}
+
+.eng {
+	font-family: $exo-font;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+}
+
+nav {
+	position: fixed;
+	padding: 40px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: space-between;
+	z-index: 99;
+
+	div.logo {
+		img {
+			width: 80px;
+		}
+	}
+
+	div.button-sets {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 40px;
+		z-index: 12;	
+
+		&.right-buttons{
+			gap: 150px;
+		}
+
+		a.button {
+			padding: 10px;
+			text-decoration: none;
+			font-weight: 600;
+			font-family: $yaldevi-font;
+			color: $black-currant;
+			background: $sunny-yellow;
+			box-shadow: 4px 4px 0px $black-currant;
+			border-radius: 5px;
+			min-width: 150px;
+			height: 65px;
+			position: relative;
+			display: inline-block;
+			transition: 0.3s;					
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			&.btn-a::after {
+				content: '';				
+				width: 300px;
+				height: 300px;
+				top: -30px;
+				left: -50px;
+				position: absolute;
+				background: url(./assets/shapes/Circles.svg) no-repeat;
+				z-index: -1;
+			}
+
+			&.btn-b::after {
+				content: '';				
+				width: 300px;
+				height: 300px;
+				top: -5px;
+				left: 120px;
+				position: absolute;
+				background: url(./assets/shapes/UploadArrow.svg) no-repeat;
+				z-index: -1;
+			}
+
+			&.btn-c::after {
+				content: '';				
+				width: 300px;
+				height: 300px;
+				top: -35px;
+				left: 150px;
+				position: absolute;
+				background: url(./assets/shapes/PlusSign.svg) no-repeat;
+				z-index: -1;
+			}
+
+			&.lang {
+				min-width: 100px;
+
+				&::after {
+					content: '';				
+					width: 300px;
+					height: 300px;
+					top: -45px;
+					left: -60px;
+					position: absolute;
+					background: url(./assets/shapes/Globe.svg) no-repeat;
+					z-index: -1;
+				}
+			}
+			
+			&:hover{
+				background: $ocean-green;
+				color: $cloud-grey;
+			}
+		}
+	}
+}
+
+section.home {
+	background-color: $deep-blue;
+	height: 100vh;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+
+	div.bg-image {
+		background: url(./assets/backgrounds/home2.svg);
+		background-size: 80%;
+		background-position: top left;
+		width: 100%;
+		height: 100vh;
+		animation: wave-anim 30s linear infinite;
+		opacity: 20%;
+		z-index: -10;
+	}
+
+	div.wave-lines {
+		position: absolute;
+		top: -40%;
+		left: -20%;
+		width: 120%;
+		height: 140%;
+		overflow: hidden;
+		z-index: 0;
+		img{
+			width: 100%;
+		}
+	}
+
+	div.content{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		font-family: $yaldevi-font;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 12;
+
+		.heading1{
+			font-size: 80px;
+			color: $cloud-grey;
+			position: relative;
+
+			&::after{
+				content: $heading1;				
+				position: absolute;
+				top: 4px;
+				left: 4px;
+				width: 120%;
+				color: $black-currant;
+				z-index: -1;
+			}
+
+			.sea{
+				color: $wave-blue;
+				position: relative;
+
+				&::before{
+					content: '';				
+					position: absolute;
+					background-color: $cloud-grey;
+					bottom: -4px;
+					left: 4px;
+					height: 10px;
+					width: 100%;
+					z-index: -1;
+				}
+				&::after{
+					content: '';				
+					position: absolute;
+					background-color: $black-currant;
+					bottom: -8px;
+					left: 8px;
+					height: 10px;
+					width: 100%;
+					z-index: -2;
+				}
+			}
+		}
+	}
+
+	div.bottom-wave{
+		position: absolute;
+		bottom: -20px;
+		left: 0;
+		width: 100%;
+		img{
+			width: 100%;
+			height: 20%;
+		}
+	}
+
+	div.bubbles{
+		position: absolute;
+		top: 50vh;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: flex-end;
+
+		div.bubble{
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			background: wheat;
+		}
+	}
+}
+
+div.vector-holder{
+	position: absolute;
+    top: 60vh;
+	left: -5%;
+	height: 100%;
+	width: 100%;
+    z-index: 10;
+
+	div.holder{
+		position: relative;
+	}
+	img{
+		position: absolute;
+		width: 50%;
+		animation: image-float 2s ease-in-out infinite;
+	}
+}
+
+@keyframes wave-anim {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		// background-position-y: 594.6px;
+		background-position: 500% 700%;
+	}
+}
+
+@keyframes image-float {
+	0%, 100% {
+		top: -40px;
+	}
+	50% {
+		top: 0;
+	}
+}
+
